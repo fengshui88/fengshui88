@@ -26,11 +26,16 @@ for (let i = 1; i <= dataLen; i++) {
 
     if (i == 1 || i == 3 || i == 10 || i == 12 || i == 15 || i == 18 || i == 29 || i == 41 || i == 46 || i == 53 || i == 107 || i == 124 || i == 141 || i == 150 || i == 168 || i == 239) {
         xx = xx % 27;
-        xx += 65;
+        xx += 75;
     } else {
         xx = xx % 83;
-        xx += 10;
+        xx += 35;
     }
+
+    if(xx >= 100){
+        xx = 100 - 2
+    }
+
     const as = "percent-bar-" + i;
     const asd = "percent-txt-" + i;
     var percentTxt = document.getElementById("percent-txt-" + i);
@@ -42,8 +47,11 @@ for (let i = 1; i <= dataLen; i++) {
         .css("width", xx + "%");
     if (xx < 30) {
         bar.classList.add("red");
-    } else if (xx > 70) {
+        bar.classList.remove("green");
+        bar.classList.remove("yellow");
+    } else if (xx > 69) {
         bar.classList.add("green");
+        bar.classList.remove("red");
     } else {
         bar.classList.add("yellow");
     }

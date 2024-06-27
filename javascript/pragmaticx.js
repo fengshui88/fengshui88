@@ -24,8 +24,14 @@ for (let i = 1; i < 1000; i++) {
         xx += 65;
     } else {
         xx = xx % 83;
-        xx += 10;
+        xx += 30;
     }
+
+    if(xx > 100) {
+        xx = xx % 83;
+        xx += 50;
+    }
+    
     const as = "percent-bar-" + i;
     const asd = "percent-txt-" + i;
     var percentTxt = document.getElementById("percent-txt-" + i);
@@ -37,7 +43,7 @@ for (let i = 1; i < 1000; i++) {
         .css("width", xx + "%");
     if (xx < 30) {
         bar.classList.add("red");
-    } else if (xx > 70) {
+    } else if (xx > 69) {
         bar.classList.add("green");
     } else {
         bar.classList.add("yellow");
